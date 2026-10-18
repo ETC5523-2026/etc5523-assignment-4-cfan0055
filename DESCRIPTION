@@ -11,7 +11,6 @@ Description: Provides published estimates of five hospital infections in
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 8.1.0
 Depends: 
     R (>= 4.1.0)
 Imports: 
@@ -22,3 +21,4 @@ Imports:
     shiny,
     tidyr
 LazyData: true
+Config/roxygen2/version: 8.1.0
