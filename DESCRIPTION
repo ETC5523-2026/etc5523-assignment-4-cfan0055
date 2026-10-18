@@ -21,3 +21,4 @@ Imports:
     ggplot2,
     shiny,
     tidyr
+LazyData: true
