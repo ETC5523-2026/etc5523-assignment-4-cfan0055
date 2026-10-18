@@ -1,0 +1,23 @@
+Package: haiburden
+Title: Explore the Burden of Hospital Infections in Germany and Europe
+Version: 0.1.0
+Authors@R: 
+    person("Chenghuiyu", "Fan", , "cfan0055@student.monash.edu", role = c("aut", "cre"))
+Description: Provides published estimates of five hospital infections in
+    Germany and the EU/EEA from 2011 to 2012. The estimates count cases,
+    deaths and healthy years lost. The package includes plotting helpers
+    and a Shiny app that shows how the ranking of infections changes with
+    the measure.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.1.0
+Depends: 
+    R (>= 4.1.0)
+Imports: 
+    bslib,
+    dplyr,
+    forcats,
+    ggplot2,
+    shiny,
+    tidyr
