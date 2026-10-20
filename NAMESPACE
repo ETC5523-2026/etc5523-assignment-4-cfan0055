@@ -2,6 +2,8 @@
 
 export(harm_per_infection)
 export(plot_burden)
+export(run_app)
+importFrom(bslib,bs_theme)
 importFrom(dplyr,
   arrange,
   desc,
@@ -20,4 +22,5 @@ importFrom(ggplot2,
   scale_fill_manual,
   theme_minimal
 )
+importFrom(shiny,runApp)
 importFrom(tidyr,pivot_wider)
