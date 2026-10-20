@@ -1,0 +1,11 @@
+.bslib-card .card-header {
+  background-color: #0B4F6C;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.tip {
+  border-left: 4px solid #0B4F6C;
+  padding-left: 0.6rem;
+  font-size: 0.9rem;
+}
