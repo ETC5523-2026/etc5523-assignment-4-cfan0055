@@ -1,0 +1,96 @@
+---
+title: "Exploring the burden of hospital infections"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Exploring the burden of hospital infections}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 4.5
+)
+```
+
+## Who this package is for
+
+This package is for hospital infection control managers. They decide which infections get prevention money first. The package helps them answer one question. Is the most common hospital infection also the infection that does the most harm?
+
+## Install the package
+
+Install the package from GitHub with the remotes package. Then load it.
+
+```{r, eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("ETC5523-2026/etc5523-assignment-4-cfan0055")
+```
+
+```{r setup}
+library(haiburden)
+```
+
+## The data
+
+The package has one dataset called `hai_burden`. It holds published estimates for five hospital infections. Each row is one infection in one survey sample for one measure. All numbers are yearly rates per 100,000 people.
+
+```{r}
+head(hai_burden)
+```
+
+The `measure` column has three values. `Infections` counts new cases. `Deaths` counts deaths caused by the infection. `DALYs` counts healthy years lost. Type `?hai_burden` to read the full description of every column.
+
+## Launch and use the app
+
+Run this code to open the app in your browser.
+
+```{r, eval = FALSE}
+run_app()
+```
+
+The app has three controls on the left.
+
+1. **What do you want to count?** Choose the number of infections, the number of deaths or the healthy years lost.
+2. **Which survey samples?** Tick one or more samples. The app shows a message if you untick all of them.
+3. **Show 95% uncertainty intervals.** Tick this box to add a black line to each bar.
+
+Start with the number of infections. Then switch to healthy years lost. Watch how the order of the bars changes.
+
+## Read the outputs
+
+The chart shows one bar for each infection. The longest bar is at the top. The sentence under the chart names the largest bar. The table shows the healthy years lost for every 100 infections.
+
+The same chart can be made outside the app with `plot_burden()`. First count the infections.
+
+```{r}
+plot_burden(hai_burden, burden_measure = "Infections")
+```
+
+Urinary tract infection is the most common infection in Germany and in the EU/EEA. Bloodstream infection is one of the least common.
+
+Now measure the harm and add the uncertainty intervals.
+
+```{r}
+plot_burden(hai_burden, burden_measure = "DALYs", show_interval = TRUE)
+```
+
+The order changes. Bloodstream infection moves near the top. Urinary tract infection is no longer first in the EU/EEA. The intervals are wide, so small gaps between bars are not certain.
+
+The table in the app comes from `harm_per_infection()`.
+
+```{r}
+harm_per_infection(hai_burden)
+```
+
+In the German national sample, 100 bloodstream infections cost about 216 healthy years. 100 urinary tract infections cost about 31 healthy years. One bloodstream infection is about seven times as harmful. The answer to the question is no. The most common infection is not the most harmful one.
+
+## Limits of the data
+
+These numbers are model estimates from hospital surveys in 2011 and 2012. Each survey looked at a hospital on a single day. The numbers may be different in hospitals today.
+
+## Source
+
+Zacher B, Haller S, Willrich N, et al. (2019). Application of a new methodology and R package reveals a high burden of healthcare-associated infections (HAI) in Germany compared to the average in the European Union/European Economic Area, 2011 to 2012. *Eurosurveillance*, 24(46), 1900135.
