@@ -67,9 +67,9 @@ builds the dataset is in the `data-raw` folder.
 
 I used generative AI tools while preparing this assignment. Claude
 (Anthropic) explained the overall steps for building an R package with a
-Shiny app and a pkgdown website. They answered my questions about the
-structure of the package and the app. They pointed out steps I had
-missed and helped me fix bugs in my code. They also gave example code
-and example text. I reviewed, ran and tested this material, and I
-changed parts of it before using it. I checked the final package and app
-myself, and I am responsible for this submission.
+Shiny app and a pkgdown website. It answered my questions about the
+structure of the package and the app. It pointed out steps I had missed
+and helped me fix bugs in my code. It also gave example code and example
+text. I reviewed, ran and tested this material, and I changed parts of
+it before using it. I checked the final package and app myself, and I am
+responsible for this submission.
